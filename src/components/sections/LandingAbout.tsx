@@ -47,9 +47,9 @@ export default function LandingAbout() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
             className="perspective-2000"
           >
-            <div className="mono text-[#38BDF8] text-[10px] tracking-[0.5em] mb-6 uppercase">
-              // SYSTEM_DIAGNOSTICS
-            </div>
+<div className="mono text-[#38BDF8] text-[10px] tracking-[0.5em] mb-6 uppercase">
+                {/* SYSTEM_DIAGNOSTICS */}
+              </div>
               <h2 className="text-4xl md:text-7xl font-bold mb-8 leading-[0.9] tracking-tighter">
                 The Evolution of <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#A855F7]">Digital Logic.</span>
