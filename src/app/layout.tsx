@@ -22,6 +22,23 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <CustomCursor />
+                <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-EMN1TB15YP"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EMN1TB15YP');
+            `,
+          }}
+        />
         <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
