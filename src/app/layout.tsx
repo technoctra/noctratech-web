@@ -8,6 +8,9 @@ import MainLayout from "@/components/layout/MainLayout";
 export const metadata: Metadata = {
   title: "Noctra Tech | Custom Web & App Solutions",
   description: "We help businesses build custom websites and web applications that improve operations and drive growth.",
+   verification: {
+    google: "Xei3GWpZ2eXq4375CJJv8y8c77evf8-UhAVdvexzlnE",
+  },
 };
 
 export default function RootLayout({
