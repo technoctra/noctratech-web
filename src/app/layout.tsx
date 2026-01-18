@@ -4,11 +4,12 @@ import ErrorReporter from "@/components/ErrorReporter";
 import CustomCursor from "@/components/common/CustomCursor";
 import Script from "next/script";
 import MainLayout from "@/components/layout/MainLayout";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Noctra Tech | Custom Web & App Solutions",
   description: "We help businesses build custom websites and web applications that improve operations and drive growth.",
-   verification: {
+  verification: {
     google: "Xei3GWpZ2eXq4375CJJv8y8c77evf8-UhAVdvexzlnE",
   },
 };
@@ -22,7 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <CustomCursor />
-                <Script
+        <WhatsAppButton />
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-EMN1TB15YP"
           strategy="afterInteractive"
