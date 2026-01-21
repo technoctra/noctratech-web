@@ -61,7 +61,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden flex items-center snap-start">
+    <section id="contact" className="min-h-screen py-16 sm:py-32 px-4 sm:px-6 relative overflow-hidden flex items-center snap-start">
       <div className="max-w-[1600px] mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

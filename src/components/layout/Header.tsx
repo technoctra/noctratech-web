@@ -28,8 +28,8 @@ export default function Header() {
   ];
 
   return (
-    <header className={`glass-nav ${scrolled ? "glass-nav-scrolled" : "py-8 bg-transparent border-transparent"}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <header className={`glass-nav ${scrolled ? "glass-nav-scrolled" : "py-4 sm:py-8 bg-transparent border-transparent"}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Magnetic>
           <Link
             href="/"

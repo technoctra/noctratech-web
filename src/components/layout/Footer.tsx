@@ -8,7 +8,7 @@ import { Shield, Zap, Terminal } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="py-24 px-6 border-t border-white/5 relative z-10 snap-start bg-[#020203]">
+    <footer className="py-12 sm:py-24 px-6 border-t border-white/5 relative z-10 snap-start bg-[#020203]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16">
         <div className="space-y-6 text-center md:text-left">
           <Magnetic>

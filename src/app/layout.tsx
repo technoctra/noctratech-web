@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ErrorReporter from "@/components/ErrorReporter";
-import CustomCursor from "@/components/common/CustomCursor";
 import Script from "next/script";
 import MainLayout from "@/components/layout/MainLayout";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
@@ -22,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <CustomCursor />
         <WhatsAppButton />
         <Script
           async
