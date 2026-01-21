@@ -104,7 +104,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.4 }}
           className="mb-12 sm:mb-20"
         >
-          <div className="mono text-[#00F2FF] text-[10px] sm:text-xs mb-4 tracking-[0.4em] uppercase">CAPABILITIES // CORE_EXPERTISE</div>
+          <div className="mono text-[#00F2FF] text-xs sm:text-xs mb-4 tracking-[0.4em] uppercase">CAPABILITIES // CORE_EXPERTISE</div>
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-8 perspective-1000">
             <span className="block">Engineered</span>
             <span className="text-cyber-gradient">Solutions</span>

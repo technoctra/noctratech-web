@@ -72,7 +72,7 @@ export default function ContactSection() {
         >
 
           <div className="relative z-10">
-            <div className="mono text-[#00F2FF] text-[10px] sm:text-xs mb-4 tracking-[0.4em] uppercase">CONTACT // NOCTRA</div>
+            <div className="mono text-[#00F2FF] text-xs sm:text-xs mb-4 tracking-[0.4em] uppercase">CONTACT // NOCTRA</div>
             <motion.h2
               initial={{ opacity: 0, x: -20, rotateX: 45 }}
               whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
@@ -203,7 +203,7 @@ export default function ContactSection() {
 
                   <div className="space-y-3 group">
                     <div className="flex items-center justify-between px-1">
-                      <label className="text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
+                      <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
                         <Zap className="w-3 h-3" />
                         NAME
                       </label>
@@ -221,7 +221,7 @@ export default function ContactSection() {
 
                   <div className="space-y-3 group">
                     <div className="flex items-center justify-between px-1">
-                      <label className="text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
+                      <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
                         <ShieldCheck className="w-3 h-3" />
                         BUSINESS NAME
                       </label>
@@ -239,7 +239,7 @@ export default function ContactSection() {
 
                   <div className="space-y-3 group">
                     <div className="flex items-center justify-between px-1">
-                      <label className="text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
+                      <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
                         <MessageCircle className="w-3 h-3" />
                         WHAT DO YOU WANT TO BUILD?
                       </label>

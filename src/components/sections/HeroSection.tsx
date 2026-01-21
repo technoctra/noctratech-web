@@ -45,14 +45,14 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-[#00F2FF] animate-pulse shadow-[0_0_8px_#00F2FF]" />
-            <span className="text-[9px] sm:text-[10px] mono text-[#00F2FF] uppercase tracking-widest">System_Online // v6.0.4</span>
+            <span className="text-[10px] sm:text-[10px] mono text-[#00F2FF] uppercase tracking-widest">System_Online // v6.0.4</span>
           </motion.div>
 
           <motion.h1
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9] sm:leading-[0.85] tracking-tighter mb-6 sm:mb-10 perspective-2000"
+            className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.95] sm:leading-[0.85] tracking-tighter mb-6 sm:mb-10 perspective-2000"
           >
             <div className="overflow-hidden">
               <motion.span
@@ -122,7 +122,7 @@ export default function HeroSection() {
 
                 <div className="relative z-10 flex flex-col items-center">
                   <Cpu className="w-12 h-12 sm:w-16 sm:h-16 text-white mb-4 opacity-90" />
-                  <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-xs text-[#00F2FF] tracking-widest uppercase">
+                  <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs sm:text-xs text-[#00F2FF] tracking-widest uppercase">
                     Core_Active
                   </div>
                 </div>
@@ -134,13 +134,13 @@ export default function HeroSection() {
                       <div key={i} className="w-1 h-1 bg-[#00F2FF]/40 rounded-full" />
                     ))}
                   </div>
-                  <div className="text-[10px] text-white/20">UPLINK_STABLE</div>
+                  <div className="text-xs sm:text-[10px] text-white/20">UPLINK_STABLE</div>
                 </div>
               </div>
 
               <div className="flex justify-between items-end mb-8">
                 <div>
-                  <div className="text-white/40 mb-1 uppercase text-[9px] tracking-[0.3em] flex items-center gap-2">
+                  <div className="text-white/40 mb-1 uppercase text-xs sm:text-[9px] tracking-[0.3em] flex items-center gap-2">
                     <Activity className="w-3 h-3 text-[#00F2FF]" />
                     Neural_Interface_v6
                   </div>
@@ -149,8 +149,8 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-[10px] text-white/20 uppercase tracking-widest mb-1">Status</div>
-                  <div className="text-[#39FF14] text-[10px] flex items-center gap-2 justify-end">
+                  <div className="text-xs sm:text-[10px] text-white/20 uppercase tracking-widest mb-1">Status</div>
+                  <div className="text-[#39FF14] text-xs sm:text-[10px] flex items-center gap-2 justify-end">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#39FF14]" />
                     OPTIMAL
                   </div>
@@ -163,7 +163,7 @@ export default function HeroSection() {
                     <div className="p-2 rounded-lg bg-[#00F2FF]/10 text-[#00F2FF]">
                       <Zap className="w-4 h-4" />
                     </div>
-                    <span className="text-[#F8FAFC]/40 text-[10px] uppercase tracking-wider">Speed</span>
+                    <span className="text-[#F8FAFC]/40 text-xs sm:text-[10px] uppercase tracking-wider">Speed</span>
                   </div>
                   <div className="text-xl sm:text-2xl font-bold text-white">1.2<span className="text-sm text-white/40 ml-1">ms</span></div>
                 </div>
@@ -173,14 +173,14 @@ export default function HeroSection() {
                     <div className="p-2 rounded-lg bg-[#8B5CF6]/10 text-[#8B5CF6]">
                       <Shield className="w-4 h-4" />
                     </div>
-                    <span className="text-[#F8FAFC]/40 text-[10px] uppercase tracking-wider">Security</span>
+                    <span className="text-[#F8FAFC]/40 text-xs sm:text-[10px] uppercase tracking-wider">Security</span>
                   </div>
                   <div className="text-xl sm:text-2xl font-bold text-white">99.9<span className="text-sm text-white/40 ml-1">%</span></div>
                 </div>
               </div>
 
               <div className="mt-8 space-y-4">
-                <div className="flex justify-between text-[10px] uppercase tracking-widest text-white/40 mb-1">
+                <div className="flex justify-between text-xs sm:text-[10px] uppercase tracking-widest text-white/40 mb-1">
                   <span>Processing_Load</span>
                   <span className="text-[#00F2FF]">14%</span>
                 </div>
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="mt-8 flex justify-between items-center text-[10px] text-white/20 mono">
+              <div className="mt-8 flex justify-between items-center text-xs sm:text-[10px] text-white/20 mono">
                 <div className="flex gap-4">
                   <span>ID_NX-01</span>
                   <span>T_54.2°C</span>

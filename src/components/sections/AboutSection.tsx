@@ -38,7 +38,7 @@ export default function AboutSection() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div className="mono text-[#00F2FF] text-[10px] sm:text-xs mb-4 tracking-[0.4em] uppercase">SYSTEM_INITIALIZATION // ABOUT_ME</div>
+            <div className="mono text-[#00F2FF] text-xs sm:text-xs mb-4 tracking-[0.4em] uppercase">SYSTEM_INITIALIZATION // ABOUT_ME</div>
             <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-8 perspective-1000">
               <span className="block">Architect of</span>
               <span className="text-cyber-gradient">Digital Systems</span>

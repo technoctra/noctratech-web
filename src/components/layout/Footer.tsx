@@ -23,12 +23,12 @@ export default function Footer() {
               <span className="text-[#00F2FF] font-black group-hover:animate-pulse">.TECH</span>
             </Link>
           </Magnetic>
-          <p className="text-[10px] mono text-white/20 tracking-[0.3em] max-w-xs">
+          <p className="text-xs sm:text-[10px] mono text-white/20 tracking-[0.3em] max-w-xs">
             ENGINEERING_DISTRIBUTED_SYSTEMS // SECURE_ARCHITECTURES // HIGH_PERFORMANCE_UI
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 text-[10px] mono text-white/30 uppercase tracking-[0.4em] text-center md:text-left">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 text-xs sm:text-[10px] mono text-white/30 uppercase tracking-[0.4em] text-center md:text-left">
           {[
             { name: "Github", url: "#" },
             { name: "LinkedIn", url: "https://www.linkedin.com/in/noctra-tech-b36b0a3a5" },
@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="text-[10px] mono text-white/20 text-center md:text-right space-y-4">
+        <div className="text-xs sm:text-[10px] mono text-white/20 text-center md:text-right space-y-4">
           <div className="flex items-center justify-center md:justify-end gap-3 text-[#00F2FF]/60 bg-white/5 px-4 py-2 rounded-full border border-white/5 shadow-xl w-max mx-auto md:mx-0">
             <Shield className="w-3 h-3 text-[#39FF14]" />
             <span className="tracking-[0.2em]">SYSTEM_STABLE // v5.0.0</span>
