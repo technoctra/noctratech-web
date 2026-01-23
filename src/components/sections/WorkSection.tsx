@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Shield, Globe, Terminal, ArrowUpRight, Cpu, Zap, Activity } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Shield, Globe, Terminal, ArrowUpRight, Cpu, Zap, Activity, X } from "lucide-react";
 import TextScramble from "@/components/common/TextScramble";
 import Magnetic from "@/components/common/Magnetic";
 
@@ -96,6 +97,8 @@ export default function WorkSection() {
     },
   ];
 
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
+
   return (
     <section id="work" className="min-h-screen py-16 sm:py-32 px-4 sm:px-6 relative snap-start overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
@@ -130,6 +133,7 @@ export default function WorkSection() {
                 rotateX: 5,
                 rotateY: -5,
               }}
+              onClick={() => setSelectedProject(project)}
               className="group cursor-pointer perspective-1000 h-full"
             >
               <div className="premium-card bg-[#0A0A0A]/50 border-white/5 group-hover:border-[#00F2FF]/30 transition-all duration-700 h-full flex flex-col overflow-hidden shadow-2xl relative">
@@ -286,6 +290,96 @@ export default function WorkSection() {
 
 
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F2FF]/10 to-transparent" />
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-black/80 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0A0A0A] border border-[#00F2FF]/20 rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-[0_0_50px_rgba(0,242,255,0.1)]"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-white hover:bg-[#00F2FF]/20 hover:border-[#00F2FF]/50 transition-all z-20"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="grid md:grid-cols-2">
+                {/* Image Section */}
+                <div className="relative h-64 md:h-auto overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-4 left-4 z-20">
+                    <div className="px-3 py-1 rounded-[14px] bg-black/60 backdrop-blur-md border border-white/10 mono text-[10px] text-[#00F2FF] mb-2 inline-block">
+                      {selectedProject.category}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 sm:p-8 flex flex-col">
+                  <h3 className="text-3xl font-bold mb-2 tracking-tight text-white">
+                    {selectedProject.title}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {selectedProject.tech.map((t, i) => (
+                      <span key={i} className="text-[10px] mono px-2 py-1 bg-[#00F2FF]/10 text-[#00F2FF] rounded border border-[#00F2FF]/20">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-[#F8FAFC]/70 leading-relaxed mb-8 flex-1">
+                    {selectedProject.desc}
+                    <br /><br />
+                    This project represents a key milestone in scalable architecture, demonstrating advanced capabilities in real-time processing and user-centric design.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10 mb-6">
+                    <div>
+                      <div className="text-[10px] mono text-white/40 uppercase mb-1">Performance</div>
+                      <div className="text-lg font-bold text-[#00F2FF]">{selectedProject.stats.perf}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] mono text-white/40 uppercase mb-1">Uptime</div>
+                      <div className="text-lg font-bold text-[#00F2FF]">{selectedProject.stats.uptime}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] mono text-white/40 uppercase mb-1">Build Time</div>
+                      <div className="text-lg font-bold text-[#00F2FF]">{selectedProject.stats.build}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] mono text-white/40 uppercase mb-1">Bundle Size</div>
+                      <div className="text-lg font-bold text-[#00F2FF]">{selectedProject.stats.size}</div>
+                    </div>
+                  </div>
+
+                  <button className="w-full py-3 bg-[#00F2FF]/10 hover:bg-[#00F2FF]/20 border border-[#00F2FF]/50 text-[#00F2FF] font-bold rounded-lg transition-all flex items-center justify-center gap-2 group">
+                    <span>View Case Study</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
