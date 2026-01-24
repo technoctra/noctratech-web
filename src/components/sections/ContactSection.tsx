@@ -16,6 +16,7 @@ export default function ContactSection() {
   // Form Data State
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     businessName: "",
     projectDescription: ""
   });
@@ -186,10 +187,10 @@ export default function ContactSection() {
                   <p className="text-white/60 mb-12 text-lg max-w-sm">
                     We've sent the details to our secure server. Check your email for confirmation.
                   </p>
-                  <Button
-                    onClick={() => { setFormState("idle"); setLogs([]); setFormData({ name: "", businessName: "", projectDescription: "" }); }}
-                    className="mono bg-white/5 hover:bg-white/10 text-white border border-white/10 h-14 px-10 rounded-full"
-                  >
+                    <Button
+                      onClick={() => { setFormState("idle"); setLogs([]); setFormData({ name: "", email: "", businessName: "", projectDescription: "" }); }}
+                      className="mono bg-white/5 hover:bg-white/10 text-white border border-white/10 h-14 px-10 rounded-full"
+                    >
                     SEND_NEW_REQUEST
                   </Button>
                 </motion.div>
@@ -201,23 +202,42 @@ export default function ContactSection() {
                 >
                   <div className="absolute top-6 right-6 mono text-[9px] text-white/20 tracking-[0.3em] font-bold">SECURE_LINK_v5.0</div>
 
-                  <div className="space-y-3 group">
-                    <div className="flex items-center justify-between px-1">
-                      <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
-                        <Zap className="w-3 h-3" />
-                        NAME
-                      </label>
+                    <div className="space-y-3 group">
+                      <div className="flex items-center justify-between px-1">
+                        <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
+                          <Zap className="w-3 h-3" />
+                          NAME
+                        </label>
+                      </div>
+                      <Input
+                        required
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        disabled={formState === "submitting"}
+                        className="bg-[#0A0A0E] border-white/10 h-16 rounded-[16px] focus:border-[#00F2FF] focus:ring-4 focus:ring-[#00F2FF]/10 transition-all text-[#F8FAFC] placeholder:text-white/20 px-6 text-lg"
+                        placeholder="Your Name"
+                      />
                     </div>
-                    <Input
-                      required
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      disabled={formState === "submitting"}
-                      className="bg-[#0A0A0E] border-white/10 h-16 rounded-[16px] focus:border-[#00F2FF] focus:ring-4 focus:ring-[#00F2FF]/10 transition-all text-[#F8FAFC] placeholder:text-white/20 px-6 text-lg"
-                      placeholder="Your Name"
-                    />
-                  </div>
+
+                    <div className="space-y-3 group">
+                      <div className="flex items-center justify-between px-1">
+                        <label className="text-xs sm:text-[11px] mono text-[#00F2FF]/70 uppercase tracking-[0.2em] group-focus-within:text-[#00F2FF] transition-colors flex items-center gap-2 font-bold">
+                          <Mail className="w-3 h-3" />
+                          EMAIL
+                        </label>
+                      </div>
+                      <Input
+                        required
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        disabled={formState === "submitting"}
+                        className="bg-[#0A0A0E] border-white/10 h-16 rounded-[16px] focus:border-[#00F2FF] focus:ring-4 focus:ring-[#00F2FF]/10 transition-all text-[#F8FAFC] placeholder:text-white/20 px-6 text-lg"
+                        placeholder="Your Email"
+                      />
+                    </div>
 
                   <div className="space-y-3 group">
                     <div className="flex items-center justify-between px-1">
