@@ -4,7 +4,11 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
     console.log("POST /api/send-mail hit");
     try {
-        const { name, email, businessName, projectDescription } = await req.json();
+        const text = await req.text();
+        if (!text) {
+            return NextResponse.json({ message: 'Empty request body' }, { status: 400 });
+        }
+        const { name, email, businessName, projectDescription } = JSON.parse(text);
 
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             // FALLBACK MODE: Log to console if no credentials

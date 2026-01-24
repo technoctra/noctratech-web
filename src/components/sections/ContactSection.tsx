@@ -47,13 +47,21 @@ export default function ContactSection() {
         body: JSON.stringify(formData),
       });
 
-        if (response.ok) {
-          addLog("Transmission complete.");
-          setFormState("success");
+          if (response.ok) {
+            addLog("Transmission complete.");
+            setFormState("success");
           } else {
-            const errorData = await response.json().catch(() => ({ message: "Transmission failed." }));
-            throw new Error(errorData.message || "Transmission failed.");
+            let errorMessage = "Transmission failed.";
+            try {
+              const errorData = await response.json();
+              errorMessage = errorData.message || errorData.details || errorMessage;
+            } catch (e) {
+              const text = await response.text().catch(() => "");
+              if (text) errorMessage = text.slice(0, 100);
+            }
+            throw new Error(errorMessage);
           }
+
         } catch (error: any) {
           console.error(error);
           const errorMessage = error.message || "Unknown error occurred.";
