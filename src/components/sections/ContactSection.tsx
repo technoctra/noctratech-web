@@ -47,18 +47,19 @@ export default function ContactSection() {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        addLog("Transmission complete.");
-        setFormState("success");
-      } else {
-        throw new Error("Transmission failed.");
+        if (response.ok) {
+          addLog("Transmission complete.");
+          setFormState("success");
+        } else {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.message || "Transmission failed.");
+        }
+      } catch (error: any) {
+        console.error(error);
+        addLog(`Error: ${error.message || "Secure uplink failed."}`);
+        alert(`Failed to send message: ${error.message || "Please ensure backend is configured."}`);
+        setFormState("idle");
       }
-    } catch (error) {
-      console.error(error);
-      addLog("Error: Secure uplink failed.");
-      alert("Failed to send message. Please ensure backend is configured.");
-      setFormState("idle");
-    }
   };
 
   return (
