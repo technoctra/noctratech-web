@@ -47,18 +47,28 @@ export default function ContactSection() {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        addLog("Transmission complete.");
-        setFormState("success");
-      } else {
-        throw new Error("Transmission failed.");
-      }
-    } catch (error) {
-      console.error(error);
-      addLog("Error: Secure uplink failed.");
-      alert("Failed to send message. Please ensure backend is configured.");
-      setFormState("idle");
-    }
+          if (response.ok) {
+            addLog("Transmission complete.");
+            setFormState("success");
+          } else {
+            let errorMessage = "Transmission failed.";
+            try {
+              const errorData = await response.json();
+              errorMessage = errorData.message || errorData.details || errorMessage;
+            } catch (e) {
+              const text = await response.text().catch(() => "");
+              if (text) errorMessage = text.slice(0, 100);
+            }
+            throw new Error(errorMessage);
+          }
+
+        } catch (error: any) {
+          console.error(error);
+          const errorMessage = error.message || "Unknown error occurred.";
+          addLog(`Error: ${errorMessage}`);
+          alert(`Failed to send message: ${errorMessage}`);
+          setFormState("idle");
+        }
   };
 
   return (
