@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Shield, Globe, Terminal, ArrowUpRight, Cpu, Zap, Activity, X } from "lucide-react";
 import TextScramble from "@/components/common/TextScramble";
 import Magnetic from "@/components/common/Magnetic";
@@ -25,6 +26,8 @@ const staggerContainer = {
     } as any
   }
 };
+
+const MotionImage = motion(Image);
 
 export default function WorkSection() {
   const projects = [
@@ -137,13 +140,16 @@ export default function WorkSection() {
               className="group cursor-pointer perspective-1000 h-full"
             >
               <div className="premium-card bg-[#0A0A0A]/50 border-white/5 group-hover:border-[#00F2FF]/30 transition-all duration-700 h-full flex flex-col overflow-hidden shadow-2xl relative">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <MotionImage
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+
 
                   <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
                     <div className="px-2 py-1 rounded-[14px] bg-black/60 backdrop-blur-md border border-white/10 mono text-[8px] text-white/40">
@@ -244,14 +250,17 @@ export default function WorkSection() {
                 whileHover={{ y: -10 }}
                 className="premium-card group interactive relative overflow-hidden bg-white/[0.01] border-white/5 h-full flex flex-col"
               >
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <motion.img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-                </div>
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <MotionImage
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
+                  </div>
+
 
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-8">
@@ -317,14 +326,16 @@ export default function WorkSection() {
 
               <div className="grid md:grid-cols-2">
                 {/* Image Section */}
-                <div className="relative h-64 md:h-auto overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-4 left-4 z-20">
+                  <div className="relative h-64 md:h-full min-h-[400px] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-4 left-4 z-20">
+
                     <div className="px-3 py-1 rounded-[14px] bg-black/60 backdrop-blur-md border border-white/10 mono text-[10px] text-[#00F2FF] mb-2 inline-block">
                       {selectedProject.category}
                     </div>

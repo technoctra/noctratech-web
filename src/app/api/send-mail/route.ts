@@ -3,13 +3,13 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
     try {
-        const { name, businessName, projectDescription } = await req.json();
+        const { name, email, businessName, projectDescription } = await req.json();
 
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             // FALLBACK MODE: Log to console if no credentials
             console.log("------------------------------------------------");
             console.log(" [Fallback Mode] New Project Request Received:");
-            console.log(` From: ${name}`);
+            console.log(` From: ${name} <${email}>`);
             console.log(` Business: ${businessName}`);
             console.log(` Description: ${projectDescription}`);
             console.log("------------------------------------------------");
@@ -28,10 +28,12 @@ export async function POST(req: Request) {
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'technoctra@gmail.com',
+            to: process.env.EMAIL_USER,
+            replyTo: email,
             subject: `New Project Request from ${name} (${businessName})`,
             text: `
         Name: ${name}
+        Email: ${email}
         Business: ${businessName}
         
         Project Description:
