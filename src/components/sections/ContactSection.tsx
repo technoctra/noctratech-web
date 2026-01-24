@@ -50,16 +50,17 @@ export default function ContactSection() {
         if (response.ok) {
           addLog("Transmission complete.");
           setFormState("success");
-        } else {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.message || "Transmission failed.");
+          } else {
+            const errorData = await response.json().catch(() => ({ message: "Transmission failed." }));
+            throw new Error(errorData.message || "Transmission failed.");
+          }
+        } catch (error: any) {
+          console.error(error);
+          const errorMessage = error.message || "Unknown error occurred.";
+          addLog(`Error: ${errorMessage}`);
+          alert(`Failed to send message: ${errorMessage}`);
+          setFormState("idle");
         }
-      } catch (error: any) {
-        console.error(error);
-        addLog(`Error: ${error.message || "Secure uplink failed."}`);
-        alert(`Failed to send message: ${error.message || "Please ensure backend is configured."}`);
-        setFormState("idle");
-      }
   };
 
   return (
