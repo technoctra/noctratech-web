@@ -7,7 +7,10 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { name, email, businessName, projectDescription } = body;
 
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        const emailUser = process.env.EMAIL_USER?.trim();
+        const emailPass = process.env.EMAIL_PASS?.trim();
+
+        if (!emailUser || !emailPass) {
             // FALLBACK MODE: Log to console if no credentials
             console.log("------------------------------------------------");
             console.log(" [Fallback Mode] New Project Request Received:");
@@ -21,10 +24,12 @@ export async function POST(req: Request) {
         }
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: emailUser,
+                pass: emailPass,
             },
         });
 
